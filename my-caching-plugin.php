@@ -15,6 +15,16 @@ define('MY_CACHING_PLUGIN_VERSION', '1.0');
 define('MY_CACHING_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('MY_CACHING_PLUGIN_URL', plugin_dir_url(__FILE__));
 
+if (!function_exists('dd')) {
+    function dd($message)
+    {
+        echo '<pre>';
+        var_dump($message);
+        echo '</pre>';
+        die();
+    }
+}
+
 // Load plugin classes and files
 require_once(MY_CACHING_PLUGIN_DIR . 'inc/class-my-caching-plugin.php');
 

@@ -21,6 +21,7 @@ class My_Caching_Plugin
     {
         require_once 'class-my-caching-plugin-admin.php';
         require_once 'class-my-caching-plugin-cache.php';
+        require_once 'preloader/class-my-caching-plugin-command.php';
         // require_once 'class-my-caching-plugin-preload.php';
     }
 
@@ -31,7 +32,12 @@ class My_Caching_Plugin
     {
         $admin = new My_Caching_Plugin_Admin();
         $cache = new My_Caching_Plugin_Cache();
-        //  $preload = new My_Caching_Plugin_Preload();
+        if (php_sapi_name() === 'cli' && class_exists('WP_CLI')) {
+            $command = new My_Caching_Plugin_Command();
+            WP_CLI::add_command('my-caching-plugin', 'My_Caching_Plugin_Command');
+        }
+        // $preload = new My_Caching_Plugin_Preload();
+        // $preload = new My_Caching_Plugin_Preload();
 
         // $minify = new WP_Rocket_Minify();
         // $media = new WP_Rocket_Media();

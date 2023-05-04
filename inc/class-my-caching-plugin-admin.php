@@ -63,10 +63,10 @@ class My_Caching_Plugin_Admin
             'my_caching_plugin_enable_cache'
         );
 
-        register_setting(
-            'my_caching_plugin_settings_group',
-            'my_caching_plugin_enable_preload'
-        );
+        // register_setting(
+        //     'my_caching_plugin_settings_group',
+        //     'my_caching_plugin_enable_preload'
+        // );
 
         add_settings_section(
             'my_caching_plugin_settings_section',
@@ -83,13 +83,13 @@ class My_Caching_Plugin_Admin
             'my_caching_plugin_settings_section'
         );
 
-        add_settings_field(
-            'my_caching_plugin_enable_preload',
-            'Enable Preload',
-            array($this, 'enable_cache_preload_field'),
-            'my_caching_plugin_settings',
-            'my_caching_plugin_settings_section'
-        );
+        // add_settings_field(
+        //     'my_caching_plugin_enable_preload',
+        //     'Enable Preload',
+        //     array($this, 'enable_cache_preload_field'),
+        //     'my_caching_plugin_settings',
+        //     'my_caching_plugin_settings_section'
+        // );
     }
 
     /**
@@ -109,11 +109,11 @@ class My_Caching_Plugin_Admin
         echo '<input type="checkbox" name="my_caching_plugin_enable_cache" value="1" ' . checked($value, 1, false) . ' />';
     }
 
-    public function enable_cache_preload_field()
-    {
-        $value = get_option('my_caching_plugin_enable_preload');
-        echo '<input type="checkbox" name="my_caching_plugin_enable_preload" value="1" ' . checked($value, 1, false) . ' />';
-    }
+    // public function enable_cache_preload_field()
+    // {
+    //     $value = get_option('my_caching_plugin_enable_preload');
+    //     echo '<input type="checkbox" name="my_caching_plugin_enable_preload" value="1" ' . checked($value, 1, false) . ' />';
+    // }
 
     /**
      * Add a link to clear thecache in the WordPress admin top bar menu
